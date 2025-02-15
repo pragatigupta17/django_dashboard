@@ -126,9 +126,11 @@ button[type="submit"]:hover {
     <h1>Welcome to Our Signin Area</h1>
     <div class="container">
         <h2>Log in to Dashboard</h2>
-        <form action="submit" method="post">
-        <label for ="username">Login name:</label>
-            <input type="text" placeholder="Login name" required>
+        {{msg}}
+        <form action="{% url 'signin' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for ="username">User name:</label>
+            <input type="text" placeholder="User name" required>
             <label for ="password">Password:</label>
             <input type="password" placeholder="Password" required>
         

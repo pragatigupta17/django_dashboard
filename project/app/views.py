@@ -6,12 +6,43 @@ def signin(request):
     return render(request, 'signin.html')
     print (request.method)
     if request.method == 'POST':
-        username = request.POST['username']
-        password = request.POST['password']
+        username = request.POST.get['username']
+        password = request.POST.get['password']
+    
         if username == 'admin' and password == 'admin':
-            return render(request,'admindashboard.html',{})
+            x = "Welcome to Admin panel"
+            return render(request,'admindashboard.html',{'msg': x})
         else:
-                username:User.object.filter(stu_name=name)
+                username:User.object.filter(user_name=name)
+                password:User.object.filter(password=password)
+                print(user)
+
+    
+        
+    
+        if username:
+            data = User.objects.get(user_name=name)
+            user_data={
+                'name':data.name,
+                'password':data.password
+             }
+            print(user_data)
+            pass1 = data.password
+            if pass1 == password:
+                return render(request,'admindashboard.html',{'name':data.name,'password':data.password,'data':user_data,})
+            else:
+                msg = "username and password not match"
+                return render(request, 'signin.html',{'msg':msg})
+        else:
+            msg = "password not exist"
+            return render(request,'signin.html',{'msg':msg})
+    else:
+        return render(request, 'signin.html')
+
+
+
+
+
 def admindashboard(request):
     return render(request, 'admindashboard.html')
 
@@ -26,6 +57,7 @@ def contact(request):
 
 def registration(request):
     return render(request,'registration.html')
+    
 
 def login(request):
     return render(request,'login.html')
