@@ -46,7 +46,7 @@ label {
     color: #555;
 }
 
-input[type="text"], input[type="password"] {
+input[type="email"], input[type="password"] {
     width: 100%;
     padding: 10px;
     margin-bottom: 20px;
@@ -129,10 +129,10 @@ button[type="submit"]:hover {
         {{msg}}
         <form action="{% url 'signin' %}" method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        <label for ="username">User name:</label>
-            <input type="text" placeholder="User name" required>
+        <label for ="useremail">User Email:</label>
+            <input type="email"  name="email" placeholder="User email" value={{email}} >
             <label for ="password">Password:</label>
-            <input type="password" placeholder="Password" required>
+            <input type="password" name="password" placeholder="Password">
         
             <button type="submit">Login</button>
         </form>

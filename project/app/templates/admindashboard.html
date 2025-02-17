@@ -1,1 +1,49 @@
 <h1> admin dashboard </h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin dashboard</title>
+</head>
+<style>
+</style>
+<body>
+    <header>
+       <div class="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <i class="fas fa-code"></i>
+                <span>ADMIN</span>
+            </div>
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href='{% url "home" %}'><i class="fas fa-home"></i> Home</a></li>
+            <li><a href='{% url "about" %}'><i class="fas fa-user"></i>about</a></li>
+            <li><a href='{% url "contact" %}'><i class="fas fa-wallet"></i>contact</a></li>
+            {% comment %} <li><a href='{% url "" %}'><i class="fas fa-chart-line"></i> Analytics</a></li> {% endcomment %}
+            {% comment %} <li><a href='{% url "task" %}'><i class="fas fa-tasks"></i> Tasks</a></li> {% endcomment %}
+            {% comment %} <li><a href='{% url "setting" %}'><i class="fas fa-cog"></i> Settings</a></li> {% endcomment %}
+            {% comment %} <li><a href='{% url "help" %}'><i class="fas fa-question-circle"></i> Help</a></li> {% endcomment %}
+           <li> <a href ='{% url "registration" %}'><i class="fas fa-register"></i>Signup</a></li>
+           <li> <a href ='{% url "login" %}'><i class="fas fa-Login"></i>Login</a></li>
+
+        </ul>
+        <div class="logout">
+            <a href='{% url "login" %}'><i class="fas fa-sign-out-alt"></i> Log out</a>
+        </div>
+    </div>
+        </nav>
+    </header>
+<div>
+{% block content %}
+<h1>THIS IS BASE PAGE</h1>
+{% endblock %}
+</div>
+    <footer>
+        <p>&copy; 2025 MyBrand. All rights reserved to PRAGATI GUPTA.</p>
+    </footer>
+
+
+</body>
+</html>

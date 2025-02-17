@@ -1,45 +1,36 @@
 from django.shortcuts import render
+from .models import Admin
 from .models import User
 
 # Create your views here.
 def signin(request):
-    return render(request, 'signin.html')
-    print (request.method)
+    print(request.method)
+
     if request.method == 'POST':
-        username = request.POST.get['username']
-        password = request.POST.get['password']
+        email = request.POST.get('email')
+        password = request.POST.get('password')
     
-        if username == 'admin' and password == 'admin':
+        if email == 'admin@gmail.com' and password == 'admin':
             x = "Welcome to Admin panel"
             return render(request,'admindashboard.html',{'msg': x})
         else:
-                username:User.object.filter(user_name=name)
-                password:User.object.filter(password=password)
+            admin=signin.objects.filter(email=email)
+            if(data):
+                user=signin.objects.get(email=email)
                 print(user)
+                password=user.email
+                if(password==password):
+                    return render(request,'base.html')
+                else:        
+                    return render (request,'signin.html')
+    else:
+        return render (request,'signin.html')
 
-    
+
+
         
     
-        if username:
-            data = User.objects.get(user_name=name)
-            user_data={
-                'name':data.name,
-                'password':data.password
-             }
-            print(user_data)
-            pass1 = data.password
-            if pass1 == password:
-                return render(request,'admindashboard.html',{'name':data.name,'password':data.password,'data':user_data,})
-            else:
-                msg = "username and password not match"
-                return render(request, 'signin.html',{'msg':msg})
-        else:
-            msg = "password not exist"
-            return render(request,'signin.html',{'msg':msg})
-    else:
-        return render(request, 'signin.html')
-
-
+       
 
 
 
