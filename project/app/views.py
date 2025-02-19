@@ -14,9 +14,10 @@ def signin(request):
             x = "Welcome to Admin panel"
             return render(request,'admindashboard.html',{'msg': x})
         else:
-            admin=signin.objects.filter(email=email)
+            x="Admin not match"
+            return render(request,'signin.html', {'mag':x})
             if(data):
-                user=signin.objects.get(email=email)
+                user=User.objects.get(email=email)
                 print(user)
                 password=user.email
                 if(password==password):
