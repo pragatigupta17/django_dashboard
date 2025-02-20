@@ -9,31 +9,26 @@ def signin(request):
     if request.method == 'POST':
         email = request.POST.get('email')
         password = request.POST.get('password')
+        print(email,password)
     
         if email == 'admin@gmail.com' and password == 'admin':
             x = "Welcome to Admin panel"
             return render(request,'admindashboard.html',{'msg': x})
         else:
-            x="Admin not match"
-            return render(request,'signin.html', {'mag':x})
-            if(data):
-                user=User.objects.get(email=email)
-                print(user)
-                password=user.email
-                if(password==password):
-                    return render(request,'base.html')
-                else:        
-                    return render (request,'signin.html')
+            #  x="Admin not match"
+            #  return render(request,'signin.html', {'mag':x})
+            user=User.objects.get(email=email)  
+            if User:
+                    user=User.objects.get(email=email)
+                    print(user)
+                    email=user.email
+                    password1=user.password
+                    if(password==password1):
+                        return render(request,'base.html')
+                    else:        
+                        return render (request,'signin.html')
     else:
         return render (request,'signin.html')
-
-
-
-        
-    
-       
-
-
 
 def admindashboard(request):
     return render(request, 'admindashboard.html')
