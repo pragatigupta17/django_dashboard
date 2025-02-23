@@ -126,34 +126,126 @@ footer p {
 footer:hover {
   background-color: #444;
 }
+/* Style the admin navbar */
+.admin-navbar {
+  background-color: #333;
+  color: #fff;
+  padding: 1em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  weight:100%;
+  position: fixed;
+  height:10%;
+}
+
+.admin-navbar-brand {
+  font-size: 1.5em;
+  font-weight:small;
+}
+
+.admin-navbar-nav {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.admin-nav-item {
+  margin-right: 20px;
+}
+
+.admin-nav-link {
+  color: #fff;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.admin-nav-link i {
+  margin-right: 10px;
+}
+
+.admin-nav-link:hover {
+  color: #ccc;
+}
+
+.admin-navbar-search {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+#search-input {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  width: 200px;
+}
+
+#search-btn {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+#search-btn:hover {
+  background-color: #444;
+}
+
+.admin-navbar-profile {
+  display: flex;
+  align-items: center;
+}
+
+.admin-navbar-profile img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.admin-navbar-profile span {
+  font-size: 1.2em;
+  font-weight: bold;
+}
 </style>
 <body>
-    <header>
-       <div class="sidebar">
-        <div class="sidebar-header">
-            <div class="logo">
-                <i class="fas fa-code"></i>
-                <span>DASHBOARD</span>
-            </div>
-        </div>
-        <ul class="sidebar-menu">
-            <li><a href='{% url "about" %}'><i class="fas fa-user"></i>about</a></li>
-            <li><a href='{% url "contact" %}'><i class="fas fa-wallet"></i>Fee Status</a></li>
-            {% comment %} <li><a href='{% url "" %}'><i class="fas fa-chart-line"></i> Analytics</a></li> {% endcomment %}
-            {% comment %} <li><a href='{% url "task" %}'><i class="fas fa-tasks"></i> Tasks</a></li> {% endcomment %}
-            {% comment %} <li><a href='{% url "setting" %}'><i class="fas fa-cog"></i> Settings</a></li> {% endcomment %}
-            {% comment %} <li><a href='{% url "help" %}'><i class="fas fa-question-circle"></i> Help</a></li> {% endcomment %}
-           <li> <a href ='{% url "registration" %}'><i class="fas fa-register"></i>Student Registration</a></li>
-           <li> <a href ='{% url "login" %}'><i class="fas fa-Login"></i>Login</a></li>
+      <div class="dash">
+<div class="sidebar">
+<h2>DASHBOARD</h2>
 
-        </ul>
-        <div class="logout">
-            <a href='{% url "login" %}'><i class="fas fa-sign-out-alt"></i> Log out</a>
+<ul>
+<div class="fire">
+<li><a href='{% url "fee_status" %}'><i class="fa-solid fa-fire"></i>Fee Status</a></li>
+</div>
+<div class="fire">
+
+<li><a href='{% url "registration" %}'><i class="fa-solid fa-chart-simple"></i>Student Registration</a></li>
+</div>
+</ul>
+<div class="logout">
+            <a href='{% url "signin" %}'><i class="fas fa-sign-in-alt"></i> Log out</a>
         </div>
-    </div>
-        </nav>
-    </header>
-<div>
+</div>
+ <main>
+<header class="topbar">
+<div class="user-info">
+<span class="user-name"><h2>USER</h2></span>
+</div>
+<div class="search-container">
+<input type="text" id ="searchInput" placeholder="Search...">
+<button>Search</button>
+</div>
+<img src="https://via.placeholder.com/40"alt="User" class="user-pic">
+</header>
+
+</main>
+</div>
+    
+
 {% block content %}
 <h1>THIS IS BASE PAGE</h1>
 {% endblock %}

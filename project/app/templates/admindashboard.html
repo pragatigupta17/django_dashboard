@@ -7,35 +7,47 @@
     <title>Admin dashboard</title>
 </head>
 <style>
-</style>
-<body>
-    <header>
-       <div class="sidebar">
-        <div class="sidebar-header">
-            <div class="logo">
-                <i class="fas fa-code"></i>
-                <span>ADMIN</span>
-            </div>
-        </div>
-        <ul class="sidebar-menu">
-            <li><a href='{% url "home" %}'><i class="fas fa-home"></i>Fee Details</a></li>
-            <li><a href='{% url "about" %}'><i class="fas fa-user"></i>Student Details</a></li>
-            <li><a href='{% url "contact" %}'><i class="fas fa-wallet"></i>contact</a></li>
-            {% comment %} <li><a href='{% url "" %}'><i class="fas fa-chart-line"></i> Analytics</a></li> {% endcomment %}
-            {% comment %} <li><a href='{% url "task" %}'><i class="fas fa-tasks"></i> Tasks</a></li> {% endcomment %}
-            {% comment %} <li><a href='{% url "setting" %}'><i class="fas fa-cog"></i> Settings</a></li> {% endcomment %}
-            {% comment %} <li><a href='{% url "help" %}'><i class="fas fa-question-circle"></i> Help</a></li> {% endcomment %}
-        
-           <li> <a href ='{% url "login" %}'><i class="fas fa-Login"></i>Login</a></li>
+/* style.css */
 
-        </ul>
-        <div class="logout">
-            <a href='{% url "login" %}'><i class="fas fa-sign-out-alt"></i> Log out</a>
+
+</style>
+
+<body>
+      <div class="dash">
+<div class="sidebar">
+<h2>DASHBOARD</h2>
+
+<ul>
+<div class="fire">
+<li><a href='{% url "student_details" %}'><i class="fa-solid fa-user"></i>Student Details</a></li>
+</div>
+<div class="fire">
+
+<li><a href='{% url "fee_details" %}'><i class="fa-solid fa-chart-simple"></i>Fee Details</a></li>
+</div>
+</ul>
+<div class="logout">
+            <a href='{% url "signin" %}'><i class="fas fa-sign-in-alt"></i> Log out</a>
         </div>
-    </div>
-        </nav>
-    </header>
-<div>
+</div>
+ <main>
+<header class="topbar">
+<div class="user-info">
+<span class="user-name"><h2>USER</h2></span>
+</div>
+<div class="search-container">
+<input type="text" id ="searchInput" placeholder="Search...">
+<button>Search</button>
+</div>
+<img src="https://via.placeholder.com/40"alt="User" class="user-pic">
+</header>
+
+</main>
+</div>
+    
+
+
+
 {% block content %}
 <h1>THIS IS BASE PAGE</h1>
 {% endblock %}
