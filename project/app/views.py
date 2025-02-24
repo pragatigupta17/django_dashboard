@@ -60,7 +60,9 @@ def registration(request):
         phone=request.POST.get('phone')
         session=request.POST.get('session')
         roll_no=request.POST.get('roll_no')
-        address=request.POST.get('address')    
+        address=request.POST.get('address') 
+        print(name)   
+        print(gender)   
         print(__all__)
         user = Student.objects.filter(email=email)
     

@@ -15,76 +15,77 @@
 <body>
 <div class="container">
         <h2>Create Your Profile</h2>
-        <form>
+        <form action="{% url 'registration' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
             <div class="form-group">
-                <label>Name:</label>
-                <input type="text" placeholder="Enter your name">
+                <label for="name">Name:</label>
+                <input type="text" placeholder="Enter your name" name="name" value={{name}}>
              
-                <label>Gender:</label>
-                <select>
-                    <option>Male</option>
-                    <option>Female</option>
-                    <option>Other</option>
-                </select>
+                <label for="gender">Gender:</label>
+                <option name="gender" value={{gender}}> Male</option>
+                <option name="gender" value={{gender}}> Female</option>
+                <option name="gender" value={{gender}}> Other</option>
+
                 <div class="form-group">
               <label for="profile-pic">Image:</label>
               <input type="file" name="profile-pic" value={{profile_pic}} accept=".jpeg, .png" >
             </div>
             <div class="form-group">
-                <label>Father's Name:</label>
-                <input type="text" placeholder="Enter father's name">
+                <label for="fname">Father's Name:</label>
+                <input type="text" placeholder="Enter father's name" name="fname" value={{fname}}>
             
-                <label>Mother's Name:</label>
-                <input type="text" placeholder="Enter mother's name">
+                <label for="mname">Mother's Name:</label>
+                <input type="text" placeholder="Enter mother's name" name="mname" value={{mname}}>
             </div>
             <div class="form-group">
-                <label>Date of Birth:</label>
-                <input type="date">
+                <label for="dob">Date of Birth:</label>
+                <input type="date"value={{dob}}>
             
-                <label>Blood group:</label>
-                <input type="text" placeholder="Enter ur blood group">
+                <label for="bloodgrp">Blood group:</label>
+                <input type="text" placeholder="Enter ur blood group" name="bloodgrp"value={{bloodgrp}}>
             </div>
            <div class="form-group">
-           <label for="subscribe">Specialisation:</label>
-                <select>
-                    <option>Medical</option>
-                    <option>Dental Science</option>
-                    <option>Ayurveda</option>
-                    <option>Engineering & Technology</option>
-                    <option>Nursing</option>
-                    <option>Para-Medical Science</option>
-                    <option>Agriculture & Allied Science</option>
-                    <option>Commerce & Management</option>
-                    <option>Journalism & Mass Communication</option>
-                    <option>Juridical Science(LAW)</option>
-                    <option>Pharmaceutial Science</option>
-                </select>
+           <label for="specialisation">Specialisation:</label>
+           <section name="specialisation">
+                <option value={{specialisation}}>Medical</option>
+                <option value={{specialisation}}>Dental Science</option>
+                <option value={{specialisation}}>Ayurveda</option>
+                <option value={{specialisation}}>Engineering & Technology</option>
+                <option value={{specialisation}}>Nursing</option>
+                <option value={{specialisation}}>Para-Medical Science</option>
+                <option value={{specialisation}}>Agriculture & Allied Science</option>
+                <option value={{specialisation}}>Commerce & Management</option>
+                <option value={{specialisation}}>Journalism & Mass Communication</option>
+                <option value={{specialisation}}>Juridical Science(LAW)</option>
+                <option value={{specialisation}}>Pharmaceutial Science</option>
+                </section>
             
-                <label>Course:</label>
-                <input type="text" placeholder="Enter ur course">
+            
+                <label for="course">Course:</label>
+                <input type="text" placeholder="Enter ur course" name="course" value={{course}}>
                </div>
              <div class="form-group">
-                <label>Email:</label>
-                <input type="email" placeholder="Enter email">
+                <label for="email">Email:</label>
+                <input type="email" placeholder="Enter email" name="email" value={{email}}>
            
-                <label>Phone:</label>
-                <input type="tel" placeholder="Enter phone number">
+                <label for="phone">Phone:</label>
+                <input type="tel" placeholder="Enter phone number" name="phone" value={{phone}}>
                 </div>
              <div class="form-group">
-                <label>Session:</label>
-                <input type="date">
+                <label for="session">Session:</label>
+                <input type="date" name="session" value={{session}}>
             
-                <label>Roll Number:</label>
-                <input type="number" placeholder="Enter roll number">
+                <label for="rollno">Roll Number:</label>
+                <input type="number" placeholder="Enter roll number" name="rollno" value={{rollno}}>
                 </div>
             
              <div class="form-group">
-                <label>Address:</label>
-                <textarea placeholder="Enter address"></textarea>
+                <label for="address">Address:</label>
+                <textarea placeholder="Enter address" name="address" value={{address}}></textarea>
            </div>
            <div class="form-group">
-            <label>Password:</label>
-            <input type="password" placeholder="Enter password">
+            <label for="password">Password:</label>
+            <input type="password" placeholder="Enter password" name="password" value={{password}}>
             </div>
             <div class="form-group">
             <button type="submit">Register</button>
